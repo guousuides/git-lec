@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+
+contact_links:
+  - name: 📖 まず資料を見る
+    url: https://github.com/guousuides/git-lec#ドキュメント一覧
+    about: 手順書・コマンド辞典・トラブル対処はこちらにまとまっています
+
+  - name: 🌱 草が生えない時
+    url: https://github.com/guousuides/git-lec/blob/main/docs/02_kusa.md#草が生えない時のチェックリスト
+    about: いちばん多い原因は git config のメールアドレス不一致です
+
+  - name: 💬 Cypher Discord
+    url: https://discord.com/
+    about: すぐに聞きたい時はこちら（#git-lec チャンネル）

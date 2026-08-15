@@ -1,0 +1,175 @@
+# =============================================================
+#  受講者向けの、やさしいファイル名チェック
+#
+#  ⚠️ 受講者へ：
+#     もしここで赤いバツが付いても、壊れていません。
+#     「ファイル名をこう直すといいですよ」と教えてくれているだけです。
+#     直してもう一度 push すれば、自動でやり直されます。
+#
+#  設計方針（講師向け）：
+#     - contents: read のみ。PRへの自動コメントはしない
+#       （fork由来のPRでも権限エラーにならないようにするため）
+#     - 変更ファイル名はファイル経由で受け渡す
+#       （${{ }} を run: 内に展開しない = スクリプトインジェクション対策）
+#     - 失敗メッセージには必ず「直し方」まで書く
+#     - チェック項目は最小限。落ちる回数を減らすことを優先
+# =============================================================
+
+name: メンバーファイルのチェック
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: ファイル名と中身の簡易チェック
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 変更されたファイルを調べる
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -eu
+          git fetch --no-tags origin "$BASE_REF"
+          git diff --name-only --diff-filter=ACMR "origin/$BASE_REF...HEAD" > changed.txt
+
+          echo "----------------------------------------"
+          echo "このPRで変更されたファイル:"
+          sed 's/^/  - /' changed.txt
+          echo "----------------------------------------"
+
+      - name: 秘密情報らしきファイルが含まれていないか
+        run: |
+          set -eu
+          NG=0
+
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            [ "$f" = ".env.example" ] && continue
+            case "$f" in
+              .env|.env.*|*/.env|*/.env.*|*.pem|*.key|*id_rsa*|*credentials.json|*service-account*.json)
+                echo "::error file=$f::【重要】$f は秘密情報が入る可能性のあるファイルです"
+                NG=1
+                ;;
+            esac
+          done < changed.txt
+
+          if [ "$NG" -eq 1 ]; then
+            echo ""
+            echo "========================================================"
+            echo " ⚠️ 秘密情報らしきファイルが含まれています"
+            echo "========================================================"
+            echo ""
+            echo "落ち着いてください。まだ main には入っていません。"
+            echo ""
+            echo "もし本物のAPIキーやパスワードが含まれている場合は、"
+            echo "【最優先でキーを無効化してください】。ファイルを消すより先です。"
+            echo ""
+            echo "  → docs/06_safety.md の「上げてしまった時の対処」"
+            echo ""
+            echo "分からなければ、そのまま講師に伝えてください。"
+            echo "隠さずに言ってもらえるのがいちばん助かります。"
+            echo "========================================================"
+            exit 1
+          fi
+
+          echo "✅ 秘密情報らしきファイルは含まれていません"
+
+      - name: members/ のファイル名をチェック
+        run: |
+          set -eu
+          NG=0
+          CHECKED=0
+
+          while IFS= read -r f; do
+            case "$f" in
+              members/*) ;;
+              *) continue ;;
+            esac
+
+            BASENAME="${f##*/}"
+
+            # README.md と _TEMPLATE.md は対象外
+            if [ "$BASENAME" = "README.md" ] || [ "$BASENAME" = "_TEMPLATE.md" ]; then
+              continue
+            fi
+
+            CHECKED=$((CHECKED + 1))
+
+            # members/ の直下か（サブフォルダを作っていないか）
+            if [ "$f" != "members/$BASENAME" ]; then
+              echo "::error file=$f::members/ の直下に置いてください（フォルダを作らないでください）"
+              echo "   正しい形： members/<あなたのGitHub ID>.md"
+              NG=1
+              continue
+            fi
+
+            # 拡張子は .md
+            case "$BASENAME" in
+              *.md) ;;
+              *)
+                echo "::error file=$f::ファイル名が .md で終わっていません"
+                echo "   → $BASENAME を <あなたのGitHub ID>.md に変更してください"
+                NG=1
+                continue
+                ;;
+            esac
+
+            # 使える文字：英数字とハイフンのみ（GitHub ID の規則）
+            NAME="${BASENAME%.md}"
+            if ! printf '%s' "$NAME" | grep -qE '^[A-Za-z0-9][A-Za-z0-9-]*$'; then
+              echo "::error file=$f::ファイル名に使えない文字が含まれています"
+              echo "   → GitHub ID は英数字とハイフンのみです。日本語やスペースは使えません"
+              echo "   → 例： members/taro-yamada.md"
+              NG=1
+              continue
+            fi
+
+            echo "✅ $f"
+          done < changed.txt
+
+          if [ "$NG" -eq 1 ]; then
+            echo ""
+            echo "========================================================"
+            echo " ファイル名を直してください"
+            echo "========================================================"
+            echo ""
+            echo "🟢 壊れていません。やり直せます。"
+            echo ""
+            echo "正しい形："
+            echo "    members/<あなたのGitHub ID>.md"
+            echo ""
+            echo "例（GitHub IDが taro-yamada の場合）："
+            echo "    members/taro-yamada.md"
+            echo ""
+            echo "【直し方（ターミナル）】"
+            echo "    git mv members/いまの名前.md members/正しい名前.md"
+            echo "    git commit -m \"fix: ファイル名を修正\""
+            echo "    git push"
+            echo ""
+            echo "【直し方（VS Code）】"
+            echo "    左のエクスプローラーでファイルを右クリック → Rename"
+            echo "    → Source Control で + → コミット → Sync Changes"
+            echo ""
+            echo "push すると、このチェックは自動でやり直されます。"
+            echo "分からなければ手を挙げてください。"
+            echo "========================================================"
+            exit 1
+          fi
+
+          if [ "$CHECKED" -eq 0 ]; then
+            echo "ℹ️ members/ の変更はありません。このチェックはスキップします。"
+          else
+            echo ""
+            echo "🎉 すべてOKです！ レビューを待ちましょう。"
+          fi

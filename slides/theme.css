@@ -1,0 +1,142 @@
+/* @theme cypher */
+/*
+ * =============================================================
+ *  Cypher スライドテーマ（Marp用・任意）
+ *
+ *  ⚠️ これは「無くても動く」オプションです。
+ *     30min.md は frontmatter の style: ブロックに同じ内容を
+ *     インラインで持っているので、このファイルが無くても
+ *     そのまま表示されます。
+ *
+ *  使い方（テーマとして読み込む場合）:
+ *     marp --theme slides/theme.css slides/30min.md -o slides/30min.html
+ *     このとき 30min.md の frontmatter を theme: cypher に変更してください。
+ *
+ *  VS Code の Marp 拡張で使う場合:
+ *     settings.json に以下を追加
+ *     "markdown.marp.themes": ["./slides/theme.css"]
+ * =============================================================
+ */
+
+@import 'default';
+
+:root {
+  --cy-bg: #0f1117;
+  --cy-bg-alt: #1a1f2e;
+  --cy-line: #2a3040;
+  --cy-text: #e6e8ee;
+  --cy-muted: #5a6478;
+  --cy-green: #4ade80;
+  --cy-blue: #93c5fd;
+  --cy-amber: #fbbf24;
+  --cy-red: #f87171;
+}
+
+section {
+  background: var(--cy-bg);
+  color: var(--cy-text);
+  font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  font-size: 26px;
+  padding: 60px 70px;
+  line-height: 1.6;
+}
+
+/* 表紙・章扉用： <!-- _class: lead --> */
+section.lead {
+  background: linear-gradient(135deg, #0f1117 0%, #1a1f2e 100%);
+  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+  color: var(--cy-green);
+  font-size: 2.0em;
+  border: none;
+  margin-bottom: 0.4em;
+}
+
+h2 {
+  color: var(--cy-green);
+  font-size: 1.45em;
+  border-bottom: 2px solid var(--cy-line);
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  color: var(--cy-blue);
+  font-size: 1.1em;
+}
+
+strong {
+  color: var(--cy-amber);
+}
+
+a {
+  color: var(--cy-blue);
+}
+
+code {
+  background: var(--cy-bg-alt);
+  color: var(--cy-green);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--cy-bg-alt);
+  border-left: 4px solid var(--cy-green);
+  border-radius: 6px;
+  padding: 0.8em 1em;
+}
+
+pre code {
+  background: transparent;
+  color: var(--cy-text);
+  font-size: 0.85em;
+  padding: 0;
+}
+
+table {
+  font-size: 0.85em;
+  border-collapse: collapse;
+  margin: 0.5em 0;
+}
+
+th {
+  background: var(--cy-bg-alt);
+  color: var(--cy-green);
+}
+
+td, th {
+  border: 1px solid var(--cy-line);
+  padding: 8px 14px;
+}
+
+blockquote {
+  border-left: 4px solid var(--cy-amber);
+  color: #c9cede;
+  padding-left: 1em;
+  font-size: 0.9em;
+  font-style: normal;
+}
+
+header, footer {
+  color: var(--cy-muted);
+  font-size: 0.6em;
+}
+
+section::after {
+  color: var(--cy-muted);
+  font-size: 0.6em;
+}
+
+/* ユーティリティ */
+.big {
+  font-size: 1.6em;
+  line-height: 1.5;
+}
+
+.warn {
+  color: var(--cy-red);
+}
