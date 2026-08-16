@@ -60,12 +60,12 @@ Gitは、実はほとんどの場合、**自動でうまく合体してくれま
 
 **このフォルダは壊してよい場所です。** 何をしても本編に影響しません。
 
-### 事前準備（講師が実施済み）
+### 事前準備（進行役が実施済み）
 
-講師が `conflict-playground/guestbook.md` の**同じ行**を書き換えたブランチを
-`main` にmergeしてあります。あなたはそれを知らずに同じ行を編集します。
+進行役が `conflict-playground/guestbook.md` の**同じ行**を書き換えたブランチを
+すでに `main` にmergeしてあります。
 
-（講師向けの仕込み手順 → [conflict-playground/instructor_setup.md](../conflict-playground/instructor_setup.md)）
+（進行役向けの仕込み手順 → [conflict-playground/instructor_setup.md](../conflict-playground/instructor_setup.md)）
 
 ### STEP 1：最新を取得して、練習用ブランチを作る
 

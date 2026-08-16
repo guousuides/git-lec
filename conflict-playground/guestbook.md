@@ -22,7 +22,7 @@
 
 1. あなたが上の行を書き換えてcommitする
 2. `git pull origin main` を実行する
-3. **講師も同じ行を書き換えてmergeしてある**ので、Gitが判断できず止まる
+3. **進行役も同じ行を書き換えてmergeしてある**ので、Gitが判断できず止まる
 4. `CONFLICT (content): Merge conflict in conflict-playground/guestbook.md` と表示される
 
 **そこからが練習です。** 手順は [docs/05](../docs/05_extra_conflict_revert.md) の STEP 5 以降へ。

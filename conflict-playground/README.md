@@ -54,7 +54,7 @@
 | ファイル | 用途 |
 |---|---|
 | [`guestbook.md`](guestbook.md) | 全員が同じ行を編集する、衝突用のファイル |
-| [`instructor_setup.md`](instructor_setup.md) | **講師用。** 事前に衝突ブランチを仕込む手順 |
+| [`instructor_setup.md`](instructor_setup.md) | **進行役用。** 事前に衝突ブランチを仕込む手順 |
 
 ---
 

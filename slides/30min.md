@@ -591,7 +591,7 @@ remote:   https://github.com/.../pull/new/feat/taro-yamada-profile
 <!--
 【22:00】
 ・ここで拍手を入れる。区切りを明確にする
-・mergeは講師がまとめて押してもよい（時間管理優先）
+・mergeは進行役がまとめて押してもよい（時間管理優先）
 -->
 
 ---
@@ -619,7 +619,7 @@ remote:   https://github.com/.../pull/new/feat/taro-yamada-profile
 
 <!--
 【24:00】
-・スマホでも確認できる（プロジェクターに出すなら講師のIDで）
+・スマホでも確認できる（プロジェクターに出すなら進行役のIDで）
 ・ここは「できた！」を共有する時間。焦らせない
 -->
 
