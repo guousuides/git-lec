@@ -3,15 +3,15 @@ marp: true
 theme: default
 paginate: true
 size: 16:9
-header: 'Cypher GitHub入門講座（初級編・30分）'
+header: 'Cypher GitHub勉強会'
 footer: '© Cypher — AI & Data Science Community'
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
 
   section {
     font-family: 'Noto Sans JP', 'Inter', sans-serif;
-    font-size: 24px;
-    padding: 35px 55px;
+    font-size: 23px;
+    padding: 30px 50px;
     background-color: #0d1117;
     color: #c9d1d9;
     letter-spacing: -0.01em;
@@ -19,29 +19,29 @@ style: |
   h1 {
     font-family: 'Inter', 'Noto Sans JP', sans-serif;
     color: #58a6ff;
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     line-height: 1.25;
   }
   h2 {
     color: #79c0ff;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
     border-bottom: 2px solid #21262d;
     padding-bottom: 6px;
     margin-top: 0;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   h3 {
     color: #e6edf3;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   p, li {
-    line-height: 1.55;
-    margin-bottom: 8px;
+    line-height: 1.5;
+    margin-bottom: 6px;
   }
   strong {
     color: #ffa657;
@@ -56,71 +56,71 @@ style: |
     font-family: 'JetBrains Mono', Consolas, monospace;
     background-color: #161b22;
     color: #f0883e;
-    padding: 2px 8px;
+    padding: 2px 7px;
     border-radius: 6px;
-    font-size: 0.88em;
+    font-size: 0.85em;
     border: 1px solid #30363d;
   }
   pre {
     background-color: #161b22 !important;
     border: 1px solid #30363d;
     border-radius: 8px;
-    padding: 12px 18px !important;
-    margin: 10px 0;
+    padding: 10px 15px !important;
+    margin: 8px 0;
   }
   pre code {
     background: none;
     color: #79c0ff;
     padding: 0;
     border: none;
-    font-size: 0.82em;
-    line-height: 1.45;
+    font-size: 0.8em;
+    line-height: 1.4;
   }
   blockquote {
     background: #161b22;
     border-left: 5px solid #238636;
-    padding: 10px 16px;
+    padding: 8px 14px;
     border-radius: 0 8px 8px 0;
-    margin: 12px 0;
+    margin: 10px 0;
     color: #e6edf3;
-    font-size: 0.95em;
+    font-size: 0.9em;
   }
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.88em;
-    margin: 12px 0;
+    font-size: 0.82em;
+    margin: 10px 0;
   }
   th {
     background-color: #161b22;
     color: #58a6ff;
     border: 1px solid #30363d;
-    padding: 8px 14px;
+    padding: 6px 12px;
     text-align: left;
   }
   td {
     border: 1px solid #30363d;
-    padding: 8px 14px;
+    padding: 6px 12px;
     background-color: #0d1117;
   }
   .lead-title {
-    font-size: 46px;
+    font-size: 42px;
     color: #58a6ff;
     font-weight: 900;
     line-height: 1.2;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .subtitle {
-    font-size: 26px;
+    font-size: 24px;
     color: #8b949e;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
   .tag {
     display: inline-block;
-    padding: 2px 10px;
+    padding: 2px 9px;
     border-radius: 12px;
-    font-size: 0.72em;
+    font-size: 0.7em;
     font-weight: 700;
     margin-right: 6px;
     vertical-align: middle;
@@ -133,33 +133,33 @@ style: |
   .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 10px;
+    gap: 14px;
+    margin-top: 8px;
   }
   .card {
     background: #161b22;
     border: 1px solid #30363d;
     border-radius: 8px;
-    padding: 14px 18px;
+    padding: 12px 16px;
   }
   .card-highlight {
     background: #161b22;
     border: 1px solid #238636;
     border-radius: 8px;
-    padding: 14px 18px;
+    padding: 12px 16px;
   }
   .step-num {
     display: inline-block;
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     background: #1f6feb;
     color: white;
     border-radius: 50%;
     text-align: center;
-    line-height: 28px;
-    font-size: 0.8em;
+    line-height: 26px;
+    font-size: 0.78em;
     font-weight: bold;
-    margin-right: 8px;
+    margin-right: 6px;
   }
 ---
 
@@ -167,77 +167,50 @@ style: |
 <!-- _paginate: false -->
 <!-- _header: '' -->
 
-<div style="text-align: center; margin-top: 40px;">
+<div style="text-align: center; margin-top: 30px;">
   <span class="tag tag-time">30分で完走</span>
   <span class="tag tag-concept">完全未経験歓迎</span>
+  <span class="tag tag-gui">実践ハンズオン</span>
 
   <div class="lead-title" style="margin-top: 15px;">GitHub入門講座</div>
-  <div class="subtitle">〜 はじめてのPull Request & 草を生やそう 〜</div>
+  <div class="subtitle">〜 Gitの仕組みを理解して、初めての草を生やそう 〜</div>
 
-  <div style="color: #8b949e; font-size: 20px; margin-top: 30px;">
-    学生AI/データサイエンスコミュニティ <strong>Cypher</strong>
+  <div style="color: #8b949e; font-size: 19px; margin-top: 25px;">
+    <strong>Cypher-郭嘉宏</strong>（AI & Data Science Community）
   </div>
 </div>
 
 ---
 
-## この30分のゴール
+## この30~60分のゴール
 
-<div class="card-highlight" style="margin-top: 20px; font-size: 1.15em; text-align: center; padding: 25px;">
-  <span style="font-size: 1.4em;">🌿</span><br>
-  <strong>あなたのPull Requestがmergeされ、<br>GitHubのプロフィールに「草」が1つ生えている。</strong>
+<div class="card-highlight" style="font-size: 1.05em; text-align: center; padding: 12px 20px; margin-bottom: 12px;">
+  <strong>🎯 皆さんのPull Requestがmergeされ、GitHubプロフィールに「草」が生えている状態！</strong>
 </div>
 
-<div class="card-grid" style="margin-top: 20px;">
-  <div class="card">
-    <h3>🌱 草（くさ）とは？</h3>
-    GitHubで開発活動（コミットなど）をした日にプロフィールに付く<strong>緑のマス目</strong>のこと。
+<div class="card-grid" style="grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 14px;">
+  <div>
+    <div class="card" style="margin-bottom: 10px;">
+      <h3 style="margin-bottom: 4px;">🌱 草を生やすとは？</h3>
+      GitHubで開発活動（コミット・PR等）をした日に、プロフィールに付く<strong>緑のマス目（コントリビューション）</strong>のこと。
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom: 4px;">📬 Pull Request（PR）とは？</h3>
+      「自分の変更を本番に取り込んでください！」という<strong>チームへのお願い・提案</strong>のこと。
+    </div>
   </div>
-  <div class="card">
-    <h3>📬 Pull Request（PR）とは？</h3>
-    「自分の変更を本番に取り込んでください！」という<strong>公式のお願い投稿</strong>のこと。
+  <div style="text-align: center;">
+    <img src="images/kusa.png" style="width: 100%; border-radius: 8px; border: 1px solid #30363d; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+    <div style="font-size: 0.72em; color: #8b949e; margin-top: 4px;">▲ GitHubプロフィール画面（草が生えた状態）</div>
   </div>
 </div>
 
 ---
 
-## 最初に、いちばん大事な約束
+## スタート前の環境クイックチェック
 
-<div class="card-highlight" style="border-color: #388bfd; padding: 20px; margin-top: 10px;">
-  <h3 style="color: #58a6ff; font-size: 1.3em; margin: 0 0 10px 0;">🛡️ あなたのPCもリポジトリも壊れません</h3>
-  <p style="margin: 0;">Gitは「歴史を記録する道具」です。<strong>失敗してもいつでも過去に戻せます。</strong></p>
-</div>
-
-<div style="margin-top: 20px;">
-
-- ❌ **エラーが出た？** ➡️ <em>正常です！</em> 講師も毎日10回はエラーを出します。
-- ❓ **分からなくなった？** ➡️ <em>即、手を挙げてください！</em> TAと講師が助けます。
-- 🖥️ **黒い画面が怖い？** ➡️ 大丈夫、今日打つコマンドは<strong>数行だけ</strong>です。
-
-</div>
-
-> 💡 エラーメッセージは「あなたを怒る文章」ではなく**「次へのヒント」**です。
-
----
-
-## 今日のタイムスケジュール（30分）
-
-| 時間 | パート | 内容 |
-|---|---|---|
-| **00–03分** | 導入 | ゴール確認・事前課題セルフチェック |
-| **03–07分** | Part 1 | ターミナルってなに？ `pwd` / `cd` / `ls` |
-| **07–12分** | Part 2 | Git vs GitHub & 荷物でわかる4領域モデル |
-| **12–24分** | **Part 3** | **【ハンズオン】自己紹介を作ってPRを出そう！** |
-| **24–27分** | Part 4 | プロフィールの草を確認 & 生えない罠の対策 |
-| **27–30分** | Part 5 | まとめ & AI時代におけるGitの付き合い方 |
-
-> 💻 **GUI派の方へ**：全手順をVS Codeのマウス操作で行う手順書もあります！
-
----
-
-## 事前課題 クイックチェック
-
-手元のターミナル（Windowsは Git Bash）で確認してみましょう！
+本講座は **GitHubアカウント作成済み** の状態からスタートします。<br>
+手元のターミナル（Windowsは Git Bash / Macはターミナル）で動作確認しましょう！
 
 | # | 確認項目 | 打つコマンド | 期待される結果 |
 |---|---|---|---|
@@ -246,51 +219,172 @@ style: |
 | 3 | メールが登録されている | `git config --global user.email` | GitHubの登録メール |
 | 4 | GitHubログイン済み | `gh auth status` | `✓ Logged in to github.com` |
 
-> ⚠️ まだの項目がある人、赤字のエラーが出た人は**すぐに手を挙げてください**！
+> ⚠️ 未設定の項目がある人や赤字のエラーが出た人は**遠慮なく声をかけてください**！
 
 ---
 
 <!-- _class: lead -->
 <!-- _header: '' -->
 
-<span class="tag tag-time">Part 1 (03–07分)</span>
-<div class="lead-title" style="margin-top: 10px;">ターミナルってなに？</div>
-<div class="subtitle">黒い画面は「文字でおしゃべりする道具」</div>
+<span class="tag tag-time">第1章 (03–07分)</span>
+<div class="lead-title" style="margin-top: 10px;">バージョン管理ってなに？</div>
+<div class="subtitle">ファイルの歴史を記録する・タイムマシン機能</div>
 
 ---
 
-## ターミナル（黒い画面）の正体
+## 「最終版_本当の最終.docx」ってどれなん？？？？
 
-普段のマウス操作と、やっていることは**まったく同じ**です！
-
-<div class="card-grid" style="margin-top: 15px;">
-  <div class="card">
-    <h3 style="color: #79c0ff;">🖱️ GUI（マウス操作）</h3>
-    <ul>
-      <li>フォルダをダブルクリックして開く</li>
-      <li>右クリック ➡️ 「新規作成」</li>
-      <li>目で見て直感的に動かせる</li>
+<div class="card-grid" style="margin-top: 20px; gap: 20px;">
+  <div class="card" style="border-color: #ff7b72;">
+    <h3 style="color: #ff7b72; margin-top: 0;">📁 こんなファイル名ありませんか？</h3>
+    <ul style="line-height: 1.8; margin-bottom: 0;">
+      <li><code>企画書_最新.docx</code></li>
+      <li><code>企画書_最新_修正.docx</code></li>
+      <li><code>企画書_本当の最終版.docx</code></li>
+      <li><code>企画書_本当の最終版_修正2_田中.docx</code></li>
     </ul>
   </div>
-  <div class="card">
-    <h3 style="color: #ffa657;">⌨️ CUI / ターミナル</h3>
-    <ul>
-      <li><code>cd folder</code> と指示して移動する</li>
-      <li><code>touch file</code> と指示して作る</li>
-      <li><strong>自動化やAIとの連携が得意！</strong></li>
+  <div class="card-highlight" style="border-color: #da3633;">
+    <h3 style="color: #ff7b72; margin-top: 0;">😱 発生する悲劇</h3>
+    <ul style="line-height: 1.8; margin-bottom: 0;">
+      <li>どれが本当の最新版か分からない！</li>
+      <li>誰がどこを変更したか追えない！</li>
+      <li>過去のバージョンに戻せない！</li>
+      <li>上書き事故で大事なデータが消滅…</li>
     </ul>
   </div>
 </div>
 
-> **たとえ**：GUIが「お店で指差し注文」なら、ターミナルは「LINEでテキスト注文」。
+---
+
+## Git（バージョン管理）を使うとどうなる？
+
+<div class="card-highlight" style="text-align: center; padding: 14px; margin-bottom: 16px;">
+  <strong style="font-size: 1.15em; color: #7ee787;">🎉 ファイル名は1つのまま！過去の全履歴をきれいに保存</strong>
+</div>
+
+<div class="card-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+  <div class="card">
+    <h3 style="color: #58a6ff;">⏰ タイムマシン機能</h3>
+    過去の任意のセーブポイント（コミット）にいつでも安全に戻せる！
+  </div>
+  <div class="card">
+    <h3 style="color: #7ee787;">🔍 1行単位の履歴</h3>
+    「誰が・いつ・何を変更したか」がすべて完全に記録される！
+  </div>
+  <div class="card">
+    <h3 style="color: #ffa657;">🌿 同時並行の開発</h3>
+    複数人で同じファイルを編集しても壊れない（ブランチ機能）！
+  </div>
+</div>
+
+---
+
+<!-- _class: lead -->
+<!-- _header: '' -->
+
+<span class="tag tag-time">第2章 (07–11分)</span>
+<div class="lead-title" style="margin-top: 10px;">Gitの仕組みと3大用語</div>
+<div class="subtitle">荷物の発送にたとえて一発理解！</div>
+
+---
+
+## 覚える用語は3つだけ！
+
+<div class="card-grid">
+  <div class="card">
+    <h3 style="color: #58a6ff;">📦 1. リポジトリ（Repository）</h3>
+    ファイルや変更履歴をしまっておく<strong>「保存箱・貯蔵庫」</strong>のこと。<br>
+    ・<strong>ローカルリポジトリ</strong>：自分のPC内<br>
+    ・<strong>リモートリポジトリ</strong>：GitHub（クラウド）
+  </div>
+  <div class="card">
+    <h3 style="color: #7ee787;">🔒 2. コミット（Commit）</h3>
+    ファイルの変更をリポジトリに<strong>「記録・確定」</strong>すること。<br>
+    「何を直したか」のメッセージ（コミットメッセージ）を添えて記録します。
+  </div>
+</div>
+
+<div class="card" style="margin-top: 12px;">
+  <h3 style="color: #ffa657;">🗂️ 3. ワークツリー と ステージ</h3>
+  ・<strong>ワークツリー（作業場）</strong>：あなたが今実際にファイルを編集しているフォルダ。<br>
+  ・<strong>ステージ（控え室）</strong>：コミットする前に「これだけ記録する」と選んだ変更を置く場所。
+</div>
+
+---
+
+## 荷物の発送でたとえる「4領域モデル」
+
+変更したファイルは、手元のPCからGitHub（クラウド）まで**4つの場所**を順番に移動します。
+
+<div class="card-grid" style="grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 15px;">
+  <div class="card">
+    <h3 style="color: #79c0ff;"><span class="step-num">1</span> ワークツリー（作業場）</h3>
+    手元のPCでファイルを編集中の状態（部屋の机の上）
+  </div>
+  <div class="card">
+    <h3 style="color: #ffa657;"><span class="step-num">2</span> ステージ</h3>
+    <code>git add</code> で送る変更をダンボールに詰めた状態
+  </div>
+  <div class="card">
+    <h3 style="color: #7ee787;"><span class="step-num">3</span> ローカルリポジトリ</h3>
+    <code>git commit</code> でガムテープで封をして手元に保存
+  </div>
+  <div class="card">
+    <h3 style="color: #a371f7;"><span class="step-num">4</span> リモートリポジトリ（GitHub）</h3>
+    <code>git push</code> でクラウド郵便局へ発送・共有！
+  </div>
+</div>
+
+---
+
+## よくある疑問：「なぜインデックス（add）があるの？」
+
+「ファイルを編集したら、そのまま保存（commit）じゃダメなの？」
+
+<div class="card" style="margin-top: 15px;">
+  <h3 style="color: #79c0ff;">💡 理由：関係ない変更を混ぜずに綺麗に記録するため！</h3>
+  <p>例えば、同時に2つのファイルを編集したとします：</p>
+  <ul>
+    <li><code>login.py</code>（ログイン機能の追加） ➡️ <strong>今回のコミットに含めたい！</strong></li>
+    <li><code>test_memo.txt</code>（個人的なメモ・落書き） ➡️ <strong>人に見せたくない…</strong></li>
+  </ul>
+  <p style="margin-top: 10px;">
+    <code>git add login.py</code> とすることで、<strong>「送りたい物だけ」を綺麗に選んで箱詰め</strong>できます。
+  </p>
+</div>
+
+---
+
+## Git と GitHub の違い
+
+名前は似ていますが、役割がまったく違います！
+
+|  | Git（ギット） | GitHub（ギットハブ） |
+|---|---|---|
+| **正体** | あなたのPCに入る**アプリ・道具** | ネット上の**Webサービス** |
+| **場所** | 手元のパソコンの中 | クラウド（インターネット） |
+| **役割** | ファイルの変更履歴を**記録**する | 履歴を**共有**してみんなで開発する |
+| **ネット** | **不要**（オフラインで動く！） | 必要 |
+
+> **たとえ**：Git = <strong>カメラ（撮影する道具）</strong> ｜ GitHub = <strong>Instagram（写真を共有する場所）</strong>
+
+---
+
+<!-- _class: lead -->
+<!-- _header: '' -->
+
+<span class="tag tag-time">第3章 (11–13分)</span>
+<div class="lead-title" style="margin-top: 10px;">ターミナルの基本</div>
+<div class="subtitle">黒い画面は「文字でおしゃべりする道具」</div>
 
 ---
 
 ## ターミナルで一番大事なこと：「今どこにいるか」
 
-ターミナルは**「今いる場所（カレントディレクトリ）」**を基準にして動きます。
+ターミナルは「今いる場所（カレントディレクトリ）」を基準にして動きます。
 
-<div class="card-highlight" style="margin: 15px 0;">
+<div class="card-highlight" style="margin: 12px 0;">
   <strong>カレントディレクトリ</strong>（Current Directory）＝ ターミナルが今開いているフォルダのこと
 </div>
 
@@ -306,22 +400,22 @@ style: |
 
 ---
 
-## 覚えるコマンドは3つだけ！
+## 覚えるコマンドはとりま3つだけ！
 
 <div class="card-grid">
   <div class="card">
     <h3><code>pwd</code>（今どこ？）</h3>
     <strong>P</strong>rint <strong>W</strong>orking <strong>D</strong>irectory<br>
-    今いるフォルダの場所（パス）を画面に表示します。
+    今いるフォルダの場所（パス）を表示します。
   </div>
   <div class="card">
     <h3><code>ls</code>（何がある？）</h3>
     <strong>L</strong>i<strong>s</strong>t<br>
-    今いるフォルダの中にあるファイルやフォルダの一覧を表示します。
+    今いるフォルダの中にあるファイル一覧を表示します。
   </div>
 </div>
 
-<div class="card" style="margin-top: 15px;">
+<div class="card" style="margin-top: 12px;">
   <h3><code>cd フォルダ名</code>（そこへ移動！）</h3>
   <strong>C</strong>hange <strong>D</strong>irectory<br>
   指定したフォルダの中に移動します。（例：<code>cd Desktop</code> でデスクトップへ移動）<br>
@@ -330,128 +424,10 @@ style: |
 
 ---
 
-## ターミナル ミニ体験
-
-実際に打ってみましょう！（1行打ったらEnterキー）
-
-```bash
-pwd
-```
-```
-/Users/taro   # (あなたの現在地が表示されます)
-```
-
-```bash
-ls
-```
-```
-Desktop  Documents  Downloads   # (フォルダの一覧が出ます)
-```
-
-```bash
-cd Desktop
-pwd
-```
-```
-/Users/taro/Desktop   # (デスクトップに移動できました！)
-```
-
----
-
 <!-- _class: lead -->
 <!-- _header: '' -->
 
-<span class="tag tag-time">Part 2 (07–12分)</span>
-<div class="lead-title" style="margin-top: 10px;">Git vs GitHub & 4領域モデル</div>
-<div class="subtitle">荷物の発送で仕組みを一発理解する</div>
-
----
-
-## Git と GitHub は「別物」です
-
-名前は似ていますが、役割がまったく違います！
-
-|  | Git（ギット） | GitHub（ギットハブ） |
-|---|---|---|
-| **正体** | あなたのPCに入る**アプリ・道具** | ネット上の**Webサービス** |
-| **場所** | 手元のパソコンの中 | クラウド（インターネット） |
-| **役割** | ファイルの変更履歴を**記録**する | 履歴を**共有**してみんなで開発する |
-| **ネット** | **不要**（オフラインで動く！） | 必要 |
-
-> **たとえ**：Git = <strong>カメラ（撮影する道具）</strong> ｜ GitHub = <strong>Instagram（写真を投稿・共有する場所）</strong>
-
----
-
-## Gitの「4領域モデル」
-
-Gitの世界には **4つの場所** があります。変更はここを順番に移動します。
-
-```
- [① 作業場]  ──── git add ────▶  [② ステージ]
- (Working Tree)                  (Staging Area)
-      │                                │
-      │                                ▼ git commit
-      │                         [③ 手元の保存箱]
-      │                         (Local Repository)
-      │                                │
-      │                                ▼ git push
-      └───────── git pull ────── [④ GitHubの保存箱]
-                                (Remote Repository)
-```
-
-**①〜③はあなたのPCの中。④だけがインターネット上です。**
-
----
-
-## 荷物の発送でたとえる「4領域」
-
-<div class="card-grid">
-  <div class="card">
-    <span class="step-num">1</span><strong>作業場（Working Tree）</strong><br>
-    部屋で荷物を広げて作業している状態。<br>
-    <em>（ファイルを編集しただけ）</em>
-  </div>
-  <div class="card">
-    <span class="step-num">2</span><strong>ステージ（Staging Area）</strong><br>
-    「送る物」を選んでダンボールに入れた状態。<br>
-    <em>（<code>git add</code> で選別）</em>
-  </div>
-  <div class="card">
-    <span class="step-num">3</span><strong>ローカル（Local Repository）</strong><br>
-    ダンボールにガムテープを貼り、封をした状態。<br>
-    <em>（<code>git commit</code> で手元に記録確定）</em>
-  </div>
-  <div class="card">
-    <span class="step-num">4</span><strong>リモート（GitHub）</strong><br>
-    郵便局に持っていき、相手に届いた状態！<br>
-    <em>（<code>git push</code> で世界へ公開）</em>
-  </div>
-</div>
-
----
-
-## よくある疑問：「なぜステージがあるの？」
-
-「ファイルを編集したら、そのまま保存（commit）じゃダメなの？」
-
-<div class="card" style="margin-top: 15px;">
-  <h3 style="color: #79c0ff;">💡 理由：関係ない変更を混ぜないため！</h3>
-  <p>例えば、同時に3つのファイルを編集したとします：</p>
-  <ul>
-    <li><code>login.py</code>（ログイン機能の追加） ➡️ <strong>今回のコミットに含めたい！</strong></li>
-    <li><code>test_memo.txt</code>（個人的な落書きメモ） ➡️ <strong>人に見せたくない…</strong></li>
-  </ul>
-  <p style="margin-top: 10px;">
-    <code>git add login.py</code> とすることで、<strong>「送りたい物だけ」を綺麗に選んで箱詰め</strong>できます。
-  </p>
-</div>
-
----
-
-<!-- _class: lead -->
-<!-- _header: '' -->
-
-<span class="tag tag-time">Part 3 (12–24分)</span>
+<span class="tag tag-time">第4章 (13–24分)</span>
 <div class="lead-title" style="margin-top: 10px;">ハンズオン本編！</div>
 <div class="subtitle">自己紹介ファイルを作って Pull Request を出そう</div>
 
@@ -459,18 +435,18 @@ Gitの世界には **4つの場所** があります。変更はここを順番�
 
 ## これからやるハンズオンの流れ（GitHub Flow）
 
-実務のエンジニアが毎日やっている**「王道の開発手順」**を体験します！
+実務のエンジニアが毎日やっている「王道の開発手順」を体験します！
 
-<div style="font-size: 0.9em; margin-top: 15px;">
+<div style="font-size: 0.9em; margin-top: 12px;">
 
 1. 📥 **clone** ➡️ プロジェクトを自分のPCに持ってくる
 2. 🌿 **branch** ➡️ 自分専用の作業ブランチ（枝）を作る
 3. 📝 **編集** ➡️ `members/あなたのID.md` を作成して自己紹介を書く
-4. 📦 **add** ➡️ 変更をステージ（発送箱）に入れる
+4. 📦 **add** ➡️ 変更をインデックス（発送箱）に入れる
 5. 🔒 **commit** ➡️ 変更を手元の記録として確定する
 6. 🚀 **push** ➡️ GitHubに送り届ける
 7. 📬 **PR作成** ➡️ 「取り込んでください！」とPRを出す
-8. 🎉 **Merge** ➡️ 講師が承認して合体！
+8. 🎉 **Merge** ➡️ レビュー・承認されて合体！
 
 </div>
 
@@ -501,7 +477,7 @@ cd git-lec
 ## Step 2. 自分専用の作業ブランチを作る
 
 みんなで同じ本番（`main`）を直接いじると事故が起きます。<br>
-安全のため**「自分専用の枝分かれ（ブランチ）」**を作って作業します。
+安全のため「自分専用の枝分かれ（ブランチ）」を作って作業します。
 
 <span class="tag tag-cli">CLI</span> 自分のID名でブランチを作成して切り替えます：
 
@@ -562,7 +538,7 @@ git status
 
 ## Step 5. 発送箱に入れる（add）
 
-作成した自己紹介ファイルを、ステージ（発送箱）に乗せます。
+作成した自己紹介ファイルを、インデックス（発送箱）に乗せます。
 
 <span class="tag tag-cli">CLI</span> 
 ```bash
@@ -622,53 +598,41 @@ Branch 'add-member-taro-yamada' set up to track remote branch.</code></pre>
 
 ## Step 8. Pull Request（PR）を作成する
 
-GitHubの画面（ブラウザ）を開きましょう！
-
-1. リポジトリ（ `https://github.com/guousuides/git-lec` ）を開く
-2. 上部に黄色いバー **「Compare & pull request」** ボタンが出るのでクリック！
-
-```
-  ┌────────────────────────────────────────────────────────────┐
-  │ 🌿 add-member-taro-yamada had recent pushes 1 minute ago   │
-  │ [ Compare & pull request ]                                 │
-  └────────────────────────────────────────────────────────────┘
-```
-
-> ※ボタンが出ない場合：「Pull requests」タブ ➡️ 「New pull request」 ➡️ 自分のブランチを選択
-
----
-
-## Step 9. PRの内容を書いて送信！
+<div class="card-highlight" style="margin-bottom: 14px; padding: 12px 18px;">
+  <strong style="font-size: 1.05em; color: #58a6ff;">📬 Pull Request（PR）とは？</strong><br>
+  「自分の変更を本番に取り込んでください！」という<strong>チームへのお願い・提案</strong>のことです。
+</div>
 
 <div class="card-grid">
   <div class="card">
-    <h3 style="color: #79c0ff;">1. タイトル</h3>
-    <code>docs: add taro-yamada to members</code><br>
-    のように分かりやすく書きます。
+    <h3 style="color: #79c0ff;">🖱️ GitHub画面での操作手順</h3>
+    <ol style="padding-left: 20px; line-height: 1.7; margin-bottom: 0;">
+      <li>リポジトリ（<code>git-lec</code>）のトップを開く</li>
+      <li>上部の黄色いバー <strong>「Compare & pull request」</strong> をクリック</li>
+      <li>タイトルと本文を確認して <strong>「Create pull request」</strong> をクリック！</li>
+    </ol>
   </div>
   <div class="card">
-    <h3 style="color: #79c0ff;">2. 本文</h3>
-    テンプレのチェックボックスを埋めます：<br>
-    <code>- [x] 自己紹介を作成した</code>
+    <h3 style="color: #7ee787;">💡 なぜPRを作るの？</h3>
+    <ul style="line-height: 1.7; margin-bottom: 0;">
+      <li>いきなり本番に合体させず、事前に内容をレビューできる！</li>
+      <li>チーム全員に「何を追加したか」を共有できる！</li>
+    </ul>
   </div>
-</div>
-
-<div style="text-align: center; margin-top: 25px;">
-  緑色の <strong>「Create pull request」</strong> をクリック！ ➡️ <span style="font-size: 1.2em;">📬 送信完了！</span>
 </div>
 
 ---
 
-## Step 10. レビュー & Merge！🎉
+## Step 9. レビュー & Merge！🎉
 
-<div class="card-highlight" style="text-align: center; padding: 25px;">
-  <h2 style="color: #7ee787; border: none; margin-bottom: 10px;">👨‍🏫 講師がその場で全員のPRをMerge（合体）します！</h2>
-  <p style="font-size: 1.1em; margin: 0;">
+<div class="card-highlight" style="text-align: center; padding: 20px; margin-top: 10px;">
+  <h2 style="color: #7ee787; border: none; margin-bottom: 8px;">🎉 その場で全員のPRをMerge（合体・承認）します！</h2>
+  <p style="font-size: 1.05em; margin: 0;">
     GitHub上のPR画面が <strong>「Merged (紫色のアイコン)」</strong> に変わる瞬間を見届けましょう！
   </p>
 </div>
 
-<div style="margin-top: 20px; text-align: center;">
+<div style="margin-top: 15px; text-align: center;">
   紫色の <code>Merged</code> マークがついたら、<strong>あなたの一連の作業は大成功です！</strong> 🎊
 </div>
 
@@ -677,7 +641,7 @@ GitHubの画面（ブラウザ）を開きましょう！
 <!-- _class: lead -->
 <!-- _header: '' -->
 
-<span class="tag tag-time">Part 4 (24–27分)</span>
+<span class="tag tag-time">第5章 (24–27分)</span>
 <div class="lead-title" style="margin-top: 10px;">草を確認しよう！</div>
 <div class="subtitle">プロフィールに緑色のマス目はついたかな？</div>
 
@@ -688,9 +652,9 @@ GitHubの画面（ブラウザ）を開きましょう！
 ブラウザで自分のプロフィールページを開いてみましょう：
 **`https://github.com/あなたのID`**
 
-<div class="card-highlight" style="margin-top: 20px; text-align: center; padding: 20px;">
-  <span style="font-size: 2em;">🟩 🟩 🟩 🟩 🟩</span><br>
-  <strong style="font-size: 1.2em; color: #7ee787;">今日のマス目に色がついて「草」が生えています！</strong>
+<div class="card-highlight" style="margin-top: 15px; text-align: center; padding: 18px;">
+  <span style="font-size: 1.8em;">🟩 🟩 🟩 🟩 🟩</span><br>
+  <strong style="font-size: 1.15em; color: #7ee787;">今日のマス目に色がついて「草」が生えています！</strong>
 </div>
 
 > 「草が生える」＝ あなたが世界に向けてオープンな開発活動を一歩踏み出した証拠です！
@@ -712,7 +676,7 @@ GitHubの画面（ブラウザ）を開きましょう！
   </div>
 </div>
 
-<div class="card" style="margin-top: 15px;">
+<div class="card" style="margin-top: 12px;">
   <h3 style="color: #ff7b72;">罠③ 自分のFork（コピーリポジトリ）で作業してしまった</h3>
   Fork先のコミットは、元のリポジトリにPRを出してマージされるまで草カウントされません。
 </div>
@@ -738,7 +702,7 @@ git config --global user.email "your-correct-email@example.com"
 <!-- _class: lead -->
 <!-- _header: '' -->
 
-<span class="tag tag-time">Part 5 (27–30分)</span>
+<span class="tag tag-time">第6章 (27–30分)</span>
 <div class="lead-title" style="margin-top: 10px;">まとめ & AI時代のGit</div>
 <div class="subtitle">AIがコマンドを打つ時代に、人間は何をするのか？</div>
 
@@ -750,8 +714,8 @@ git config --global user.email "your-correct-email@example.com"
 
 <div class="card" style="margin-top: 15px;">
 
-- ✅ **ターミナルの基本**（`pwd`, `cd`, `ls` で現在地を迷わない）
-- ✅ **Gitの4領域モデル**（作業場 ➡️ ステージ ➡️ ローカル ➡️ リモート）
+- ✅ **バージョン管理の基礎**（ファイルの歴史を綺麗に記録・復元できる）
+- ✅ **Gitの4領域モデル**（作業場 ➡️ インデックス ➡️ ローカル ➡️ リモート）
 - ✅ **GitHub Flowの実践**（clone ➡️ branch ➡️ commit ➡️ push ➡️ PR）
 - ✅ **草を生やす仕組み**（メール認証・マージ条件）
 
@@ -780,18 +744,26 @@ git config --global user.email "your-correct-email@example.com"
 
 ## 番外編2：AIエージェント時代のGit操作
 
-現代は、Claude Code や GitHub Copilot などのAIが<br>
-**自然言語の指示だけで `add` / `commit` / `push` / `PR作成` まで自動実行**できる時代です。
+### AIがGitを自律操作する時代へ
+Claude Code や GitHub Copilot が、**自然言語の指示だけで一連のGit作業を自動完結**させます。
 
-<div class="card-highlight" style="margin-top: 15px;">
-  <p style="margin: 0; color: #58a6ff; font-weight: bold;">
-    💬 人間「自己紹介を追加してPRを作っておいて」<br>
-    🤖 AI 「変更をステージングし、コミットしてPR #12 を作成しました！」
-  </p>
+<div class="card-grid" style="margin-top: 15px;">
+  <div class="card-highlight" style="border-color: #58a6ff;">
+    <h3 style="color: #58a6ff; margin-top: 0;">💬 人間の指示</h3>
+    <p style="font-size: 0.95em; line-height: 1.6; margin: 0;">
+      「自己紹介ファイルを追加して、ブランチを切ってPRまで作っておいて」
+    </p>
+  </div>
+  <div class="card" style="border-color: #7ee787;">
+    <h3 style="color: #7ee787; margin-top: 0;">🤖 AIエージェントの自動実行</h3>
+    <p style="font-size: 0.88em; line-height: 1.6; margin: 0;">
+      1. <code>git switch -c add-member-taro</code><br>
+      2. ファイル作成 & <code>git add .</code><br>
+      3. <code>git commit -m "docs: add..."</code><br>
+      4. <code>git push</code> & PR作成（完了！）
+    </p>
+  </div>
 </div>
-
-「じゃあ、人間がGitを勉強する意味はなくなったの？」<br>
-➡️ **逆です。これまで以上にGitの理解が必要になっています。**
 
 ---
 
@@ -835,26 +807,9 @@ git config --global user.email "your-correct-email@example.com"
   </div>
 </div>
 
-<div class="card" style="margin-top: 15px;">
+<div class="card" style="margin-top: 12px;">
   <span class="step-num">3</span><strong>Cypherのプロジェクトに参加する</strong><br>
   コミュニティの開発プロジェクトで、仲間と一緒にチーム開発を実践しよう！
-</div>
-
----
-
-## 質問・困ったときのサポート
-
-今日の講座が終わった後も、いつでも質問大歓迎です！
-
-<div class="card-grid" style="margin-top: 15px;">
-  <div class="card">
-    <h3>💬 Cypher Discord</h3>
-    <code>#git-lec</code> チャンネルでいつでもメンションしてください！
-  </div>
-  <div class="card">
-    <h3>🐙 GitHub Issues</h3>
-    このリポジトリの「Issues」から質問を立てるのも大歓迎！立派な練習になります。
-  </div>
 </div>
 
 ---
@@ -862,13 +817,13 @@ git config --global user.email "your-correct-email@example.com"
 <!-- _class: lead -->
 <!-- _header: '' -->
 
-<div style="text-align: center; margin-top: 40px;">
-  <div class="lead-title" style="font-size: 52px; color: #7ee787;">Happy Hacking! 🌿</div>
-  <div class="subtitle" style="font-size: 28px; color: #c9d1d9; margin-top: 20px;">
+<div style="text-align: center; margin-top: 30px;">
+  <div class="lead-title" style="font-size: 48px; color: #7ee787;">Happy Hacking! 🌿</div>
+  <div class="subtitle" style="font-size: 26px; color: #c9d1d9; margin-top: 15px;">
     GitHubの世界へようこそ！
   </div>
 
-  <div style="color: #8b949e; font-size: 20px; margin-top: 40px;">
+  <div style="color: #8b949e; font-size: 19px; margin-top: 30px;">
     学生AI/データサイエンスコミュニティ <strong>Cypher</strong>
   </div>
 </div>
